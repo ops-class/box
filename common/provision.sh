@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-APT_FLAGS="-qq -y -o=pkg::Use-Pty=0 -o=Dpkg::Options::='--force-confdef' -o=Dpkg::Options::='--force-confold'"
+APT_FLAGS="-qq -y -o pkg::Use-Pty=0 -o pkg::Options::='--force-confdef' -o pkg::Options::='--force-confold'"
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get $APT_FLAGS update
