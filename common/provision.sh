@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-APT_FLAGS="-qq -y -o pkg::Use-Pty=0 -o pkg::Options::='--force-confdef' -o pkg::Options::='--force-confold'"
+APT_FLAGS="-qq -y -o Dpkg::Use-Pty=0"
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get $APT_FLAGS update
@@ -8,7 +8,7 @@ apt-get $APT_FLAGS install software-properties-common locate tmux bash-completio
 add-apt-repository ppa:ops-class/os161-toolchain 2>&1 || true
 add-apt-repository ppa:git-core/ppa 2>&1 || true
 apt-get $APT_FLAGS update
-apt-get $APT_FLAGS dist-upgrade
+apt-get $APT_FLAGS -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 apt-get $APT_FLAGS install os161-toolchain git git-doc
 
 # 24 Dec 2015 : GWA : Bootstrap trinity user.
