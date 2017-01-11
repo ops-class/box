@@ -5,10 +5,13 @@ export DISPLAY=
 	@sleep 15 # Allow reboot to complete
 	vagrant package --output $@
 
-all: $(TARGETS)
+all: $(TARGET)
+
+localinstall: $(TARGET)
+	vagrant box add $(TARGET) --name $(TARGET:.box=)
 
 clean:
-	@rm -rf $(TARGETS)
+	@rm -rf $(TARGET)
 
 .PHONY: all clean
 
