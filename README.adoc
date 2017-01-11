@@ -1,0 +1,11 @@
+= `ops-class` Virtual Boxes
+
+This repository contains scripts for creating
+//
+https://www.vagrantup.com/[Vagrant]
+//
+boxes for
+//
+https://www.ops-class.org[`ops-class.org`]
+//
+kernel development.
