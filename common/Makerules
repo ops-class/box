@@ -7,7 +7,7 @@ export DISPLAY=
 all: $(TARGETS)
 
 clean:
-	rm -rf $(TARGETS)
+	@rm -rf $(TARGETS)
 
 .PHONY: all clean
 
