@@ -2,6 +2,7 @@ export DISPLAY=
 
 %.box: Vagrantfile ../common/bashrc ../common/provision.sh
 	vagrant destroy -f && vagrant up
+	@sleep 15 # Allow reboot to complete
 	vagrant package --output $@
 
 all: $(TARGETS)
