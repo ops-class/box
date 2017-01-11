@@ -1,0 +1,14 @@
+export DISPLAY=
+
+%.box: Vagrantfile ../common/bashrc ../common/provision.sh
+	vagrant destroy -f && vagrant up
+	vagrant package --output $@
+
+all: $(TARGETS)
+
+clean:
+	rm -rf $(TARGETS)
+
+.PHONY: all clean
+
+# vim: ts=2:sw=2:noet:ft=make

@@ -4,7 +4,7 @@ APT_FLAGS="-qq -y -o Dpkg::Use-Pty=0"
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get $APT_FLAGS update
-apt-get $APT_FLAGS install software-properties-common locate tmux bash-completion man lsof iotop dos2unix
+apt-get $APT_FLAGS install software-properties-common locate tmux bash-completion man lsof iotop dos2unix vim
 add-apt-repository ppa:ops-class/os161-toolchain 2>&1 || true
 add-apt-repository ppa:git-core/ppa 2>&1 || true
 apt-get $APT_FLAGS update
@@ -37,6 +37,7 @@ if ! id -u trinity > /dev/null 2>&1 ; then
   dpkg-reconfigure tzdata 2>&1
 fi
 
+updatedb
 apt-get $APT_FLAGS autoremove --purge
 apt-get $APT_FLAGS clean
 dd if=/dev/zero of=/EMPTY bs=1M 2>/dev/null || true
